@@ -8,7 +8,15 @@
 export default {
   name: "SearchResults",
   data() {
-    return {};
+    return {
+      query: null
+    };
+  },
+  beforeMount() {
+    this.query = this.$route.params.query;
+    console.log("In the before mount");
+
+    console.log(this.query);
   }
 };
 </script>
