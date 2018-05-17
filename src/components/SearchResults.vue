@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "SearchResults",
   data() {
@@ -14,9 +16,19 @@ export default {
   },
   beforeMount() {
     this.query = this.$route.params.query;
-    console.log("In the before mount");
-
-    console.log(this.query);
+    this.getResults(this.query);
+  },
+  methods: {
+    getResults(q) {
+      axios
+        .get("https://api.dailysmarty.com/search", { params: { q } })
+        .then(response => {
+          console.log(response.data.posts);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 };
 </script>
