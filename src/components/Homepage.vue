@@ -4,9 +4,9 @@
 
     <input type="text" @keyup.enter="submitQuery">
 
-    <pre>
-        {{ recentPosts }}
-    </pre>
+    <div v-for="post in recentPosts" :key="post.id">
+        {{ post.title }}
+    </div>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
       axios
         .get("https://api.dailysmarty.com/posts")
         .then(response => {
-          this.recentPosts.push(...response.data.posts);
+          this.recentPosts.push(...response.data.posts.slice(0, 3));
           console.log(response.data.posts);
         })
         .catch(error => {
