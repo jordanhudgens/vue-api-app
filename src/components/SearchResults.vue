@@ -7,7 +7,7 @@
         </div>
 
         <div class="search-bar results-search-bar">
-            <input type="text" placeholder="&#xf002; Search DailySmarty" @keyup.enter="submitQuery">
+            <input type="text" :placeholder="searchPlaceholder" @keyup.enter="submitQuery">
         </div>
 
         <div class="results-posts-wrapper">
@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       query: null,
-      results: []
+      results: [],
+      searchPlaceholder: `\uf002 Search DailySmarty`
     };
   },
   beforeMount() {
@@ -69,4 +70,72 @@ export default {
 </script>
 
 <style scoped>
+@import "https://use.fontawesome.com/releases/v5.0.13/css/all.css";
+
+.container-results {
+  margin-top: 2em;
+}
+
+.results-search-bar input {
+  height: 5rem;
+  margin-bottom: 1em;
+  margin-top: 3em;
+}
+
+.results-posts-wrapper {
+  grid-row: 3;
+  grid-column: 1/-1;
+  width: 66vw;
+}
+
+.post {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.category-name {
+  color: #2660f3;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.category-name span {
+  margin-right: 15px;
+}
+
+.result-post-title a {
+  color: #535353;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.result-post-links-wrapper {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-gap: 2rem;
+}
+
+.result-post-link {
+  color: #535353;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.result-post-link:hover {
+  text-decoration: underline;
+}
+
+.results-logo {
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-logo img {
+  width: 50px;
+}
 </style>

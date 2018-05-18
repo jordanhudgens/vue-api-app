@@ -5,7 +5,7 @@
         </div>
 
         <div class="search-bar homepage-search-bar">
-            <input type="text" placeholder="&#xf002; Search DailySmarty" @keyup.enter="submitQuery">
+            <input type="text" :placeholder="searchPlaceholder" @keyup.enter="submitQuery">
             <p>Press return to search</p>
         </div>
 
@@ -38,7 +38,8 @@ export default {
   name: "Homepage",
   data() {
     return {
-      recentPosts: []
+      recentPosts: [],
+      searchPlaceholder: `\uf002 Search DailySmarty`
     };
   },
   beforeMount() {
@@ -67,4 +68,54 @@ export default {
 </script>
 
 <style scoped>
+@import "https://use.fontawesome.com/releases/v5.0.13/css/all.css";
+
+.container-homepage {
+  margin-top: 5em;
+  align-items: center;
+  height: 100vh;
+}
+
+.homepage-logo {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.homepage-logo img {
+  width: 10.5rem;
+}
+
+.homepage-search-bar input {
+  height: 11.8rem;
+}
+
+.recent-posts-wrapper {
+  grid-column: 1/-1;
+  grid-row: 3;
+}
+
+.recent-posts-heading {
+  color: #2660f3;
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+}
+
+.recent-posts {
+  display: grid;
+  width: 66vw;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 2.5rem;
+}
+
+.recent-post-title a {
+  color: #535353;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.recent-post-category {
+  color: #999999;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 </style>

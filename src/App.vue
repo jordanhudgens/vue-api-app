@@ -32,25 +32,6 @@ html {
   justify-items: center;
 }
 
-.container-results {
-  margin-top: 2em;
-}
-
-.container-homepage {
-  margin-top: 5em;
-  align-items: center;
-  height: 100vh;
-}
-
-.homepage-logo {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.homepage-logo img {
-  width: 10.5rem;
-}
-
 .search-bar {
   grid-column: 1/-1;
   grid-row: 2;
@@ -59,16 +40,6 @@ html {
 .search-bar input {
   width: 66vw;
   padding-left: 0.75em;
-}
-
-.homepage-search-bar input {
-  height: 11.8rem;
-}
-
-.results-search-bar input {
-  height: 5rem;
-  margin-bottom: 1em;
-  margin-top: 3em;
 }
 
 .search-bar input[type="text"] {
@@ -98,94 +69,5 @@ html {
   line-height: 1.7rem;
   margin-top: 2.3rem;
   text-align: right;
-}
-
-.recent-posts-wrapper {
-  grid-column: 1/-1;
-  grid-row: 3;
-}
-
-.recent-posts-heading {
-  color: #2660f3;
-  margin-bottom: 3rem;
-  font-size: 1.4rem;
-}
-
-.recent-posts {
-  display: grid;
-  width: 66vw;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 2.5rem;
-}
-
-.recent-post-title a {
-  color: #535353;
-  font-size: 1.4rem;
-  text-decoration: none;
-}
-
-.recent-post-category {
-  color: #999999;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-/* Results Page Styles */
-
-.results-posts-wrapper {
-  grid-row: 3;
-  grid-column: 1/-1;
-  width: 66vw;
-}
-
-.post {
-  margin-top: 3em;
-  margin-bottom: 3em;
-}
-
-.category-name {
-  color: #2660f3;
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.category-name span {
-  margin-right: 15px;
-}
-
-.result-post-title a {
-  color: #535353;
-  text-decoration: none;
-  font-size: 1.8rem;
-}
-
-.result-post-links-wrapper {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-gap: 2rem;
-}
-
-.result-post-link {
-  color: #535353;
-  text-decoration: none;
-  font-size: 1.4rem;
-}
-
-.result-post-link:hover {
-  text-decoration: underline;
-}
-
-.results-logo {
-  grid-row: 1;
-  grid-column: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.results-logo img {
-  width: 50px;
 }
 </style>
