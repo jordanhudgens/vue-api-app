@@ -7,10 +7,17 @@
         </div>
 
         <div class="search-bar results-search-bar">
-            <input type="text" :placeholder="searchPlaceholder" @keyup.enter="submitQuery">
+            <input type="text" :value="query" :placeholder="searchPlaceholder" @keyup.enter="submitQuery">
         </div>
 
         <div class="results-posts-wrapper">
+            <div v-if="!query">
+                <h2>You need to enter a query</h2>
+            </div>
+
+            <div v-if="gettingResults">
+                <h2>Loading...</h2>
+            </div>
 
             <div v-for="post in results" :key="post.id" class="post">
                 <div class="category-name">
@@ -27,6 +34,10 @@
                     <a v-for="postLink in post.post_links" :key="postLink" :href="postLink.link_url" target="_blank" class="result-post-link">{{ postLink.link_url }}</a>
                 </div>
             </div>
+
+            <div v-if="!gettingResults && results.length == 0">
+                <h2>There are no results for your query</h2>
+            </div>
         </div>
     </div>
 </template>
@@ -40,7 +51,8 @@ export default {
     return {
       query: null,
       results: [],
-      searchPlaceholder: `\uf002 Search DailySmarty`
+      searchPlaceholder: `\uf002 Search DailySmarty`,
+      gettingResults: true
     };
   },
   beforeMount() {
@@ -55,6 +67,7 @@ export default {
         .get("https://api.dailysmarty.com/search", { params: { q } })
         .then(response => {
           this.results.push(...response.data.posts);
+          this.gettingResults = false;
           console.log(response.data.posts);
         })
         .catch(error => {
