@@ -163,7 +163,7 @@ html {
 .result-post-links-wrapper {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, 1fr);
   grid-gap: 2rem;
 }
 

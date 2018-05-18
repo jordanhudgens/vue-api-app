@@ -1,7 +1,9 @@
 <template>
   <div class="container container-results">
         <div class="results-logo">
+            <router-link :to="{ name: 'Homepage' }">
             <img src="@/assets/ds_circle_logo.png" alt="">
+            </router-link>
         </div>
 
         <div class="search-bar results-search-bar">
@@ -22,10 +24,7 @@
                 </div>
 
                 <div class="result-post-links-wrapper">
-                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                    <a v-for="postLink in post.post_links" :key="postLink" :href="postLink.link_url" target="_blank" class="result-post-link">{{ postLink.link_url }}</a>
                 </div>
             </div>
         </div>
