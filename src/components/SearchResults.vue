@@ -1,13 +1,35 @@
 <template>
-  <div>
-    <h1>Search results</h1>
+  <div class="container container-results">
+        <div class="results-logo">
+            <img src="@/assets/ds_circle_logo.png" alt="">
+        </div>
 
-    <input type="text" @keyup.enter="submitQuery">
+        <div class="search-bar results-search-bar">
+            <input type="text" placeholder="&#xf002; Search DailySmarty" @keyup.enter="submitQuery">
+        </div>
 
-    <div v-for="result in results" :key="result.id">
-        {{ result.title }}
+        <div class="results-posts-wrapper">
+
+            <div v-for="post in results" :key="post.id" class="post">
+                <div class="category-name">
+                    <span v-for="topic in post.associated_topics" :key="topic">{{ topic }}</span>
+                </div>
+
+                <div class="result-post-title">
+                    <a :href="post.url_for_post" target="_blank">
+                    {{ post.title }}
+                    </a>
+                </div>
+
+                <div class="result-post-links-wrapper">
+                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                    <a href="#" class="result-post-link">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
